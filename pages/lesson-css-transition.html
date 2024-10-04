@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin-left: 50px;
+        /* background-color: wheat; */
+      }
+
+      #addToCart {
+        width: 200px;
+        height: 50px;
+        background-color: purple;
+        font-size: large;
+        font-weight: 700;
+        color: white;
+        border-radius: 50px;
+        transition: background-color 0.5s ease-in-out;
+      }
+
+      #addToCart:hover {
+        background-color: black;
+        cursor: pointer;
+        transition-property: background-color, color;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+      }
+
+      .image-container {
+        margin-top: 50px;
+        width: 200px;
+        height: 200px;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .image-container:hover {
+        transform: scale(1.2) rotate(180deg);
+        /* transform: scale(1.2) translateY(400px) translateX(600px); */
+        /* opacity: 0.5; */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="addToCart">Add To Cart</button>
+    <div class="image-container">
+      <img src="/assets/images/Grinning face.png" alt="face" />
+    </div>
+  </body>
+</html>
