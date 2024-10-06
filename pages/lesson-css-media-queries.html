@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Media Queries</title>
+    <style>
+      h1 {
+        color: red;
+      }
+
+      p {
+        color: blue;
+      }
+
+      /* @media screen and (max-width: 399px) {
+        h1 {
+          text-align: center;
+          color: green;
+        }
+
+        p {
+          color: yellow;
+        }
+      } */
+
+      @media screen and (min-width: 500px) and (max-width: 800px) {
+        h1 {
+          text-align: center;
+          color: rgb(255, 0, 242);
+          background-color: rebeccapurple;
+        }
+
+        p {
+          color: yellow;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Media Queries</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veniam
+      cupiditate repellendus a nihil, itaque officia, officiis rem, commodi iure
+      optio? Dicta quasi totam vitae, exercitationem accusamus doloribus
+      voluptate earum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Dicta eum molestiae impedit voluptas, vel harum sapiente ullam, culpa
+      animi ea facere dignissimos reiciendis consectetur, quasi neque facilis
+      vitae eos deserunt?
+    </p>
+  </body>
+</html>
