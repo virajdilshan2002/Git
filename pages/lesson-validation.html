@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: white;
+      }
+
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 600px;
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(100% - 100px);
+        padding: 10px;
+        row-gap: 10px;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+      }
+
+      input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        height: 15px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      label {
+        color: white;
+        margin-left: 5px;
+      }
+
+      button {
+        width: 100px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Registration</h1>
+      <form id="registration-form">
+        <div class="input-container">
+          <label for="name">Name:</label>
+          <input type="text" placeholder="Name" id="name" />
+          <span class="error" id="nameError"></span>
+        </div>
+        <div class="input-container">
+          <label for="email"> Email:</label>
+          <input type="email" placeholder="Email" id="email" />
+          <span class="error" id="emailError"></span>
+        </div>
+        <div class="input-container">
+          <label for="password"> Password:</label>
+          <input type="password" placeholder="Password" id="password" />
+          <span class="error" id="passwordError"></span>
+        </div>
+        <div class="input-container">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            id="confirmPassword"
+          />
+          <span class="error" id="conPasswordError"></span>
+        </div>
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(() => {
+        $("#registration-form").submit((event) => {
+          event.preventDefault();
+          console.log("Button Clicked");
+
+          let isValid = false;
+          validateForm();
+
+          if (validateForm()) {
+            alert("Form Submitted Successfully");
+          } else {
+            alert("Form Validation Failed");
+          }
+        });
+      });
+
+      function validateForm() {
+        let fullName = $("#name").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
+        let confirmPassword = $("#confirmPassword").val();
+
+        isValid = true;
+
+        if (fullName === null || fullName === "") {
+          isValid = false;
+          $("#nameError").text("Name is required!");
+        }
+        if (email === null || email === "") {
+          isValid = false;
+          $("#emailError").text("Email is required!");
+        }
+        if (password === null || password === "") {
+          isValid = false;
+          $("#passwordError").text("Password is required!");
+        }
+        if (confirmPassword === null || confirmPassword === "") {
+          isValid = false;
+          $("#conPasswordError").text("Confirm Password is required!");
+        }
+        if (password !== confirmPassword) {
+          isValid = false;
+          $("#conPasswordError").text(
+            "Password and Confirm Password do not match!"
+          );
+        }
+
+        console.log(
+          `Name: ${fullName} Email: ${email} Password: ${password} Confirm Password: ${confirmPassword}`
+        );
+        return isValid;
+      }
+    </script>
+  </body>
+</html>

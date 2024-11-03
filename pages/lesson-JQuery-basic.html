@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery Integration</title>
+  </head>
+  <body>
+    <h1 id="heading">JQuery Basic</h1>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odit aut
+      laborum quas aperiam! Harum repellat voluptatem ab possimus consequatur,
+      rerum qui inventore, totam suscipit vitae corrupti voluptatibus?
+      Similique, dolor!
+    </p>
+    <p class="paragraph2">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odit aut
+      laborum quas aperiam! Harum repellat voluptatem ab possimus consequatur,
+      rerum qui inventore, totam suscipit vitae corrupti voluptatibus?
+      Similique, dolor!
+    </p>
+    <button>Click Here</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(() => {
+        console.log("JQuery is ready to use!");
+        $("#heading").css("color", "red");
+        $(".paragraph").css("background-color", "grey");
+        $("button").css("background-color", "green").css("color", "white");
+
+        $(".paragraph2")
+          .on("mouseenter", handlerIn)
+          .on("mouseleave", handlerOut);
+
+        function handlerIn() {
+          $(".paragraph2").css("background-color", "yellow");
+        }
+
+        function handlerOut() {
+          $(".paragraph2").css("background-color", "red");
+        }
+
+        // Event Handling
+        $("button").click(() => {
+          //   alert("Button Clicked!");
+          //   $("p").hide();
+          //   $("p").toggle();
+          //   $("p").fadeOut(2000);
+          //   $("p").fadeIn(2000);
+          $("p").fadeToggle(2000);
+        });
+      });
+    </script>
+  </body>
+</html>
